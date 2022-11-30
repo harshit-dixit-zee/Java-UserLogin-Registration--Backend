@@ -1,5 +1,5 @@
 package com.example.demo.email;
 
-public class EmailSender {
-
+// Reason for taking the interface is that we can switch the implementations
+public interface EmailSender {
 }

@@ -30,7 +30,6 @@ public class AppUserService implements UserDetailsService {
     @Autowired
     ConfirmationTokenService confirmationTokenService;
 
-
     // Optional is a class that can contain both null as well as any value.
     // Optional can also be used for the method
     // here, we are calling findEmailById which is returning an Optional , so we can apply
@@ -56,6 +55,7 @@ public class AppUserService implements UserDetailsService {
         log.info("app crashing here");
         String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
         appUser.setPassword(encodedPassword);
+        appUser.setEnabled(true);
         appUserRepository.save(appUser);
 
         UUID uuid = UUID.randomUUID();
